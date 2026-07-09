@@ -30,9 +30,10 @@ jobs:
         run: |
           python atualiza_dados.py
 
-      - name: Commit and push changes
-        uses: actions-js/push@master
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          author_name: github-actions
+          author_email: github-actions@github.com
           message: "Atualiza tarifas_front.json e projecao_estudo.json"
-          branch: main
+          add: "tarifas_front.json projecao_estudo.json"
