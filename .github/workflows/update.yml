@@ -2,7 +2,7 @@ name: Atualiza dados ANEEL e projeção
 
 on:
   schedule:
-    - cron: "0 3 * * *"  # todos os dias às 03:00 UTC
+    - cron: "0 3 * * *"   # todos os dias às 03:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -33,10 +33,18 @@ jobs:
         run: |
           python atualiza_dados.py
 
-      - name: Commit and push changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: "Atualiza tarifas_front.json e projecao_estudo.json"
-          add: "tarifas_front.json projecao_estudo.json"
+      - name: Commit and push changes (git)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git pull --rebase origin main
+
+          git add tarifas_front.json projecao_estudo.json || echo "nada para adicionar"
+          if git diff --cached --quiet; then
+            echo "Nenhuma mudança para commitar."
+            exit 0
+          fi
+
+          git commit -m "Atualiza tarifas_front.json e projecao_estudo.json"
+          git push origin main
