@@ -5,6 +5,9 @@ on:
     - cron: "0 3 * * *"  # todos os dias às 03:00 UTC
   workflow_dispatch:      # permite rodar manualmente
 
+permissions:
+  contents: write   # necessário para o bot conseguir fazer push [importante]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,7 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          persist-credentials: false
+          # usa o GITHUB_TOKEN com permissão de escrita
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -30,10 +34,10 @@ jobs:
         run: |
           python atualiza_dados.py
 
-      - name: Commit changes
+      - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: github-actions
-          author_email: github-actions@github.com
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
           message: "Atualiza tarifas_front.json e projecao_estudo.json"
           add: "tarifas_front.json projecao_estudo.json"
