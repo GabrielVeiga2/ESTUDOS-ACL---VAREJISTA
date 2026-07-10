@@ -1,0 +1,42 @@
+[
+  {
+    "ano": 2026,
+    "preco_acl_aplicado": 295.0,
+    "total_cativo_mensal": 99314.28,
+    "total_livre_mensal": 124025.35,
+    "saving_mensal": -24711.07,
+    "saving_anual_projetado": -296532.84
+  },
+  {
+    "ano": 2027,
+    "preco_acl_aplicado": 275.0,
+    "total_cativo_mensal": 99314.28,
+    "total_livre_mensal": 122022.39,
+    "saving_mensal": -22708.11,
+    "saving_anual_projetado": -272497.32
+  },
+  {
+    "ano": 2028,
+    "preco_acl_aplicado": 255.0,
+    "total_cativo_mensal": 99314.28,
+    "total_livre_mensal": 120019.43,
+    "saving_mensal": -20705.15,
+    "saving_anual_projetado": -248461.8
+  },
+  {
+    "ano": 2029,
+    "preco_acl_aplicado": 230.0,
+    "total_cativo_mensal": 99314.28,
+    "total_livre_mensal": 117515.72,
+    "saving_mensal": -18201.44,
+    "saving_anual_projetado": -218417.28
+  },
+  {
+    "ano": 2030,
+    "preco_acl_aplicado": 205.0,
+    "total_cativo_mensal": 99314.28,
+    "total_livre_mensal": 115012.02,
+    "saving_mensal": -15697.74,
+    "saving_anual_projetado": -188372.88
+  }
+]
